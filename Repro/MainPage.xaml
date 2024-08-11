@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:repro="clr-namespace:Repro"
+             x:DataType="repro:MainViewModel"
+             x:Class="Repro.MainPage">
+
+   <CollectionView ItemsSource="{Binding Tests}">
+       <CollectionView.ItemTemplate>
+           <DataTemplate x:DataType="repro:TestObject">
+               <VerticalStackLayout>
+                   <repro:TestView TheValue="{Binding TheValueFromViewModel}" />
+                   <Label Text="{Binding NonNullEnumFromViewModel, StringFormat='{0} other enum'}" />
+                   <Label Text="{Binding TextFromViewModel, StringFormat='{0} Secondary Label Binding Fine'}" />
+               </VerticalStackLayout>
+           </DataTemplate>
+       </CollectionView.ItemTemplate>
+   </CollectionView>
+</ContentPage>
